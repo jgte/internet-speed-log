@@ -1,6 +1,6 @@
 # Internet Speed Log
 
-This program will test your internet speed and append it to the file `speedLog.txt`.
+This program will test your internet speed and append it to a file specified in the first input argument.
 You can schedule it to run however often you want using `crontab`. Also if you have
 a laptop like me, it may be more suitable to run this on a Raspberry Pi or something
 that is always connected to the internet.
@@ -13,7 +13,7 @@ This program uses the fabulous `speedtest-cli` tool:
 
 Then download this repo and setup a cron job:
 
-    git clone https://github.com/ccorcos/internet-speed-log.git
+    git clone https://github.com/jgte/internet-speed-log.git
 
 ### Crontab
 
@@ -24,7 +24,7 @@ Run `crontab -e` to open up the cron job list. Append the following line:
 
 ```
 # Speedtest
-0 * * * * cd /home/pi/programs/internet-speed-log/ && python speedtest.py
+0 * * * * python  /home/pi/programs/internet-speed-log/speedtest.py /home/pi/programs/internet-speed-log/speedLog.txt
 ```
 
 This will run `speedtest.py` every hour on the hour.
