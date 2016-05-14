@@ -24,10 +24,24 @@ Run `crontab -e` to open up the cron job list. Append the following line:
 
 ```
 # Speedtest
-0 * * * * python  /home/pi/programs/internet-speed-log/speedtest.py /home/pi/programs/internet-speed-log/speedLog.txt
+0 * * * * python /home/pi/programs/internet-speed-log/speedtest.py /home/pi/programs/internet-speed-log/speedLog.txt
 ```
 
 This will run `speedtest.py` every hour on the hour.
+
+### Input files
+
+Should you require to parse input files containing the output of `speedtest-cli`, use the second input argument for that:
+
+```
+speedtest-cli --share > /tmp/speedtest-cli.log
+python /home/pi/programs/internet-speed-log/speedtest.py /home/pi/programs/internet-speed-log/speedLog.txt /tmp/speedtest-cli.log
+```
+
+### Debug
+
+To check if the parsing of the a test string is working as expected, set the variable `debug` to True (line 16).
+
 
 ### Plotting
 
