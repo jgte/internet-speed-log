@@ -57,8 +57,12 @@ host = grep_it(pattern,stats,'ERROR',debug)
 pattern='Hosted by %s \[(.+?)\]:' % host.replace('(','\(').replace(')','\)')
 distance = grep_it(pattern,stats,'ERROR',debug)
 
-pattern='Hosted by %s \[%s\]: (.+?)\n' % (host.replace('(','\(').replace(')','\)'),distance.replace('.','\.'))
-ping = grep_it(pattern,stats,'ERROR',debug)
+try:
+  pattern='Hosted by %s \[%s\]: (.+?)\n' % (host.replace('(','\(').replace(')','\)'),distance.replace('.','\.'))
+except AttributeError:
+  ping = 'ERROR'
+else:
+  ping = grep_it(pattern,stats,'ERROR',debug)
 
 pattern='Download: ([0-9]*\.[0-9]*.*)\n'
 download = grep_it(pattern,stats,'ERROR',debug)
