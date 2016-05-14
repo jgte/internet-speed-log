@@ -47,3 +47,7 @@ To check if the parsing of the a test string is working as expected, set the var
 
 I've including a `plot-data.py` script that is incomplete right now will plot your
 download and upload speed as a function of a time span. This is coming soon.
+
+### Disclaimer
+
+I kept this log file as much unchanged as possible relative to the [original](https://github.com/ccorcos/internet-speed-log).
